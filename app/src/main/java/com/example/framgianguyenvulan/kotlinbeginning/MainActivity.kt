@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.example.framgianguyenvulan.kotlinbeginning.adapter.ForecastAdapter
 import com.example.framgianguyenvulan.kotlinbeginning.data.BaseTask
-import com.example.framgianguyenvulan.kotlinbeginning.data.Request
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.uiThread
@@ -20,15 +19,9 @@ class MainActivity : AppCompatActivity() {
         val forecastList = findViewById(R.id.forecast_list) as RecyclerView
         forecastList.layoutManager = LinearLayoutManager(this)
         forecastList.adapter = ForecastAdapter(items)
-
-        doAsync(){
-            Request(url1).run()
-            uiThread {  longToast("here")}
-        }
     }
 
     val f1 =BaseTask(1,"1")
-    val(id, task)=f1
     private val items = listOf("Mon 6/23 - Sunny - 31/17",
             "Tue 6/24 - Foggy - 21/8",
             "Wed 6/25 - Cloudy - 22/17",
