@@ -10,7 +10,7 @@ import com.example.framgianguyenvulan.kotlinbeginning.model.ForecastList
  */
 class ForecastAdapter(val weekForecast: ForecastList) : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        with(weekForecast.dailyForecast[position]) {
+        with(weekForecast[position]) {
             holder.textView.text = "$date -$description-$high/$low"
         }
     }
@@ -20,7 +20,7 @@ class ForecastAdapter(val weekForecast: ForecastList) : RecyclerView.Adapter<For
     }
 
     override fun getItemCount(): Int {
-        return weekForecast.dailyForecast.size
+        return weekForecast.size
     }
 
     class ViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
