@@ -1,4 +1,4 @@
-package com.example.framgianguyenvulan.kotlinbeginning
+package com.example.framgianguyenvulan.kotlinbeginning.command
 
 /**
  * Created by FRAMGIA\nguyen.vu.lan on 09/10/2017.
