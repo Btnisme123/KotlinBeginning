@@ -1,6 +1,7 @@
 package com.example.framgianguyenvulan.kotlinbeginning.adapter
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +16,8 @@ import org.jetbrains.anko.find
 /**
  * Created by FRAMGIA\nguyen.vu.lan on 06/10/2017.
  */
-public class ForecastAdapter(val weekForecast: ForecastList,
-                             val itemClick: OnItemClickListener) : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
+class ForecastAdapter(val weekForecast: ForecastList,
+                      val itemClick:(Forecast)->Unit) : RecyclerView.Adapter<ForecastAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(weekForecast[position]) {
             holder.bindForecast(weekForecast[position])
@@ -32,7 +33,7 @@ public class ForecastAdapter(val weekForecast: ForecastList,
         return weekForecast.size
     }
 
-    class ViewHolder(view: View, val itemClick: OnItemClickListener) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View, val itemClick: (Forecast)->Unit) : RecyclerView.ViewHolder(view) {
         val iconView = view.find<ImageView>(R.id.icon)
         val dateView = view.find<TextView>(R.id.date)
         val descriptionView = view.find<TextView>(R.id.description)
