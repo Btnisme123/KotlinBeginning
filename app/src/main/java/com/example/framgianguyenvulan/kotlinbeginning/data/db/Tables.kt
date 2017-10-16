@@ -1,8 +1,5 @@
 package com.example.framgianguyenvulan.kotlinbeginning.data.db
 
-/**
- * Created by FRAMGIA\nguyen.vu.lan on 12/10/2017.
- */
 object CityForecastTable {
     val NAME = "CityForecast"
     val ID = "_id"

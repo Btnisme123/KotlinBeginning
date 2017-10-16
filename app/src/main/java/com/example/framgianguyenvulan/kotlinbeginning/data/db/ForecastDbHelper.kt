@@ -2,14 +2,12 @@ package com.example.framgianguyenvulan.kotlinbeginning.data.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.example.framgianguyenvulan.kotlinbeginning.application.App
+import com.antonioleiva.weatherapp.ui.App
 import org.jetbrains.anko.db.*
 
-/**
- * Created by FRAMGIA\nguyen.vu.lan on 12/10/2017.
- */
-class ForecastDbHelper(ctx: Context = App.instance) : ManagedSQLiteOpenHelper(ctx, ForecastDbHelper.DB_NAME,
-        null, ForecastDbHelper.DB_VERSION) {
+class ForecastDbHelper(ctx: Context = App.instance) : ManagedSQLiteOpenHelper(ctx,
+        DB_NAME, null, DB_VERSION) {
+
     companion object {
         val DB_NAME = "forecast.db"
         val DB_VERSION = 1
@@ -38,3 +36,4 @@ class ForecastDbHelper(ctx: Context = App.instance) : ManagedSQLiteOpenHelper(ct
         onCreate(db)
     }
 }
+

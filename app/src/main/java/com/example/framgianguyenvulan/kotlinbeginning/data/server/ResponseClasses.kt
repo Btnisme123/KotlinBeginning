@@ -1,10 +1,6 @@
-package com.example.framgianguyenvulan.kotlinbeginning.data
+package com.example.framgianguyenvulan.kotlinbeginning.data.server
 
-/**
- * Created by FRAMGIA\nguyen.vu.lan on 09/10/2017.
- */
 data class ForecastResult(val city: City, val list: List<Forecast>)
-
 data class City(val id: Long, val name: String, val coord: Coordinates, val country: String, val population: Int)
 data class Coordinates(val lon: Float, val lat: Float)
 data class Forecast(val dt: Long, val temp: Temperature, val pressure: Float, val humidity: Int,
