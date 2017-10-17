@@ -2,7 +2,7 @@ package com.example.framgianguyenvulan.kotlinbeginning.data.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.antonioleiva.weatherapp.ui.App
+import com.example.framgianguyenvulan.kotlinbeginning.ui.App
 import org.jetbrains.anko.db.*
 
 class ForecastDbHelper(ctx: Context = App.instance) : ManagedSQLiteOpenHelper(ctx,

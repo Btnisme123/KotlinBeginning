@@ -1,4 +1,4 @@
-package com.antonioleiva.weatherapp.ui
+package com.example.framgianguyenvulan.kotlinbeginning.ui
 
 import android.app.Application
 import com.example.framgianguyenvulan.kotlinbeginning.extensions.DelegatesExt
