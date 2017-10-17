@@ -1,15 +1,13 @@
-package com.example.framgianguyenvulan.kotlinbeginning.domain.mappers
+package com.example.framgianguyenvulan.kotlinbeginning.data.server
 
-import com.example.framgianguyenvulan.kotlinbeginning.data.server.Forecast
-import com.example.framgianguyenvulan.kotlinbeginning.data.server.ForecastResult
 import com.example.framgianguyenvulan.kotlinbeginning.domain.model.ForecastList
 import java.util.*
 import java.util.concurrent.TimeUnit
 import com.example.framgianguyenvulan.kotlinbeginning.domain.model.Forecast as ModelForecast
 
-class ForecastDataMapper {
+class ServerDataMapper {
 
-    fun convertFromDataModel(zipCode: Long, forecast: ForecastResult) = with(forecast) {
+    fun convertToDomain(zipCode: Long, forecast: ForecastResult) = with(forecast) {
         ForecastList(zipCode, city.name, city.country, convertForecastListToDomain(list))
     }
 
