@@ -1,5 +1,6 @@
 package com.example.framgianguyenvulan.kotlinbeginning.domain.datasource
 
+import com.example.framgianguyenvulan.kotlinbeginning.domain.model.Forecast
 import com.example.framgianguyenvulan.kotlinbeginning.domain.model.ForecastList
 
 /**
@@ -7,4 +8,5 @@ import com.example.framgianguyenvulan.kotlinbeginning.domain.model.ForecastList
  */
 interface ForecastDataSource {
     fun requestForecastByZipcode(zipCode: Long, date: Long): ForecastList?
+    fun requestDayForecast(id: Long): Forecast?
 }

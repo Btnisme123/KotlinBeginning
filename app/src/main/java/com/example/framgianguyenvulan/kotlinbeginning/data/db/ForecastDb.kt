@@ -1,11 +1,9 @@
 package com.example.framgianguyenvulan.kotlinbeginning.data.db
 
 import com.example.framgianguyenvulan.kotlinbeginning.domain.model.ForecastList
-import com.example.framgianguyenvulan.kotlinbeginning.extensions.clear
-import com.example.framgianguyenvulan.kotlinbeginning.extensions.parseList
-import com.example.framgianguyenvulan.kotlinbeginning.extensions.parseOpt
-import com.example.framgianguyenvulan.kotlinbeginning.extensions.toVarargArray
+import com.example.framgianguyenvulan.kotlinbeginning.extensions.*
 import com.example.framgianguyenvulan.kotlinbeginning.domain.datasource.ForecastDataSource
+import org.jetbrains.anko.db.SelectQueryBuilder
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import java.util.*
@@ -37,4 +35,12 @@ class ForecastDb(private val forecastDbHelper: ForecastDbHelper = ForecastDbHelp
             dailyForecast.forEach { insert(DayForecastTable.NAME, *it.map.toVarargArray()) }
         }
     }
+    override fun requestDayForecast(id: Long) = forecastDbHelper.use {
+        val forecast = select(DayForecastTable.NAME).byId(id).
+                parseOpt { DayForecast(HashMap(it)) }
+
+        if (forecast != null) dataMapper.convertDayToDomain(forecast) else null
+    }
+fun SelectQueryBuilder.byId(id:Long)
+    =whereSimple("_id=?",id.toString())
 }
