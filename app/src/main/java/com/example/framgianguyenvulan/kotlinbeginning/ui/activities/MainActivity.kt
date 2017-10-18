@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         forecastList.layoutManager = LinearLayoutManager(this)
-
+//ssssssssssssssssssssssss
         doAsync {
             val result = RequestForecastCommand(94043).execute()
             uiThread {
