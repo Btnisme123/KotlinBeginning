@@ -3,10 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.framgianguyenvulan.kotlinbeginning.ui.activity.MainActivity">
+    tools:context="com.example.framgianguyenvulan.kotlinbeginning.ui.activities.MainActivity">
+
+    <include layout="@layout/toolbar" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/forecastList"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
 </FrameLayout>
