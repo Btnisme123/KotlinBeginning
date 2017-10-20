@@ -2,4 +2,7 @@
     <string name="app_name">KotlinBeginning</string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="settings">Settings</string>
+    <string name="title_activity_settin">SettinActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="city_zipcode">City ZipCode</string>
 </resources>

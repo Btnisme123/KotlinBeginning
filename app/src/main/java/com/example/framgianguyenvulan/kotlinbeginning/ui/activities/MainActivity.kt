@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import com.example.framgianguyenvulan.kotlinbeginning.R
+import com.example.framgianguyenvulan.kotlinbeginning.data.TypedClass
 import com.example.framgianguyenvulan.kotlinbeginning.domain.commands.RequestForecastCommand
 import com.example.framgianguyenvulan.kotlinbeginning.ui.adapters.ForecastListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,5 +34,8 @@ class MainActivity : AppCompatActivity(), ToolbarManager {
                 toolbarTitle = "${result.city} (${result.country})"
             }
         }
+
     }
+
+    inline fun <T, R> T.let(f: (T) -> R): R = f(this)
 }
