@@ -8,6 +8,7 @@ import com.example.framgianguyenvulan.kotlinbeginning.extensions.ctx
 import com.example.framgianguyenvulan.kotlinbeginning.extensions.slideEnter
 import com.example.framgianguyenvulan.kotlinbeginning.extensions.slideExit
 import com.example.framgianguyenvulan.kotlinbeginning.ui.App
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 /**
@@ -26,7 +27,7 @@ interface ToolbarManager {
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_settings ->
-                    App.instance.toast("Settings")
+                    toolbar.ctx.startActivity<SettingActivity>()
                 else -> App.instance.toast("Unknown option")
             }
             true
