@@ -39,7 +39,13 @@ dependencies {
     compile "org.jetbrains.anko:anko-common:$anko_version"
     compile "com.android.support:design:25.3.1"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "org.jetbrains.anko:anko-sdk15-coroutines:$anko_version"
+    compile "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
+    compile "org.jetbrains.anko:anko-design-coroutines:$anko_version"
+    compile "org.jetbrains.anko:anko-common:$anko_version"
+    compile "org.jetbrains.anko:anko-coroutines:$anko_version"
 }
 repositories {
     mavenCentral()
 }
+

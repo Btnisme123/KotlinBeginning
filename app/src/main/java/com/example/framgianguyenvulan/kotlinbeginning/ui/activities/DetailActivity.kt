@@ -11,16 +11,18 @@ import com.example.framgianguyenvulan.kotlinbeginning.extensions.color
 import com.example.framgianguyenvulan.kotlinbeginning.extensions.textColor
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.experimental.async
+import org.jetbrains.anko.coroutines.experimental.asReference
+import org.jetbrains.anko.coroutines.experimental.bg
 import org.jetbrains.anko.ctx
-import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.find
-import org.jetbrains.anko.uiThread
 import java.text.DateFormat
 import java.util.*
 
 class DetailActivity : AppCompatActivity(), ToolbarManager {
     override val toolbar: Toolbar by lazy { find<Toolbar>(R.id.toolbar) }
-
+    val ref = asReference()
     companion object {
         val ID = "DetailActivity:id"
         val CITY_NAME = "DetailActivity:cityName"
@@ -33,9 +35,9 @@ class DetailActivity : AppCompatActivity(), ToolbarManager {
         toolbarTitle = intent.getStringExtra(CITY_NAME)
         enableHomeAsUp { onBackPressed() }
         title = intent.getStringExtra(CITY_NAME)
-        doAsync {
-            val result = RequestDayForecastCommand(intent.getLongExtra(ID, -1)).execute()
-            uiThread { bindForcast(result) }
+        async(UI) {
+            val result = bg { RequestDayForecastCommand(intent.getLongExtra(ID, -1)).execute() }
+            ref().bindForcast(result.await())
         }
     }
 
