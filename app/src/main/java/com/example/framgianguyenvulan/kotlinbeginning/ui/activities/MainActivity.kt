@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), ToolbarManager {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        initToolbar()
         forecastList.layoutManager = LinearLayoutManager(this)
         attachToScroll(forecastList)
     }
@@ -50,5 +50,4 @@ class MainActivity : AppCompatActivity(), ToolbarManager {
         toolbarTitle = "${result.city} (${result.country})"
     }
 
-    inline fun <T, R> T.let(f: (T) -> R): R = f(this)
 }

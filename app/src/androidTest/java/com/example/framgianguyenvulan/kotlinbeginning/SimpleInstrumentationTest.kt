@@ -22,9 +22,9 @@ import org.junit.Test
  * Created by FRAMGIA\nguyen.vu.lan on 10/25/17.
  */
 class SimpleInstrumentationTest {
-    @get:Rule
-    val activityRule = ActivityTestRule(MainActivity::class.java)
+    @get:Rule val activityRule = ActivityTestRule(MainActivity::class.java)
 
+    /*
     @Test
     fun itemClickNavigatesToDetail() {
         onView(withId(R.id.forecastList)).perform(
@@ -35,30 +35,26 @@ class SimpleInstrumentationTest {
         onView(withId(R.id.weatherDescription))
                 .check(matches(isAssignableFrom(TextView::class.java)))
     }
+*/
 
-    /*
-    @Test
-    fun modifyZipCodeChangesToolbarTitle() {
+    @Test fun modifyZipCode_changesToolbarTitle() {
         openActionBarOverflowOrOptionsMenu(activityRule.activity)
         onView(withText(R.string.settings)).perform(click())
-        onView(withId(R.id.cityCode)).perform(replaceText("28839"))
+        onView(withId(R.id.cityCode)).perform(replaceText("28830"))
         pressBack()
         onView(isAssignableFrom(Toolbar::class.java))
-                .check(matches(
-                        withToolbarTitle(`is`("San Fernando de Henares (ES)"))))
+                .check(matches(withToolbarTitle(`is`("San Fernando de Henares (ES)"))))
     }
 
-    private fun withToolbarTitle(matcher: Matcher<String>): Matcher<Any> =
+    private fun withToolbarTitle(textMatcher: Matcher<CharSequence>): Matcher<Any> =
             object : BoundedMatcher<Any, Toolbar>(Toolbar::class.java) {
+
+                override fun matchesSafely(toolbar: Toolbar): Boolean =
+                        textMatcher.matches(toolbar.title)
+
                 override fun describeTo(description: Description) {
-                    description.appendText("with Toolbar title : ")
-                    matcher.describeTo(description)
+                    description.appendText("with toolbar title: ")
+                    textMatcher.describeTo(description)
                 }
-
-                override fun matchesSafely(item: Toolbar): Boolean {
-                    return matcher.matches(item.title)
-                }
-
             }
-            */
 }
